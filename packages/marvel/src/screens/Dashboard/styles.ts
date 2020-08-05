@@ -39,8 +39,13 @@ export const Row = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
+  padding: 36px 0;
 
   width: 100%;
+
+  @media (max-width: ${size.desktop}) {
+    padding: 15px 0;
+  }
 `;
 
 export const Title = styled.div`
@@ -82,7 +87,7 @@ export const CardContainer = styled.div`
 export const CustomSegment = styled(Segment)`
   &&& {
     width: 100%;
-    height:900px;
+    height: 900px;
     border: none;
     box-shadow: none;
 

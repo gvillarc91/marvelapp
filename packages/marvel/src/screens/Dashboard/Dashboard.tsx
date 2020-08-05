@@ -1,18 +1,37 @@
-import React, { useEffect } from 'react';
-import { Card } from '@marvelapp/components';
+import React, { useEffect, useState } from 'react';
+import CardList from './CardList';
 import { Wrapper, Title, Row, CardContainer, Container, CustomSegment } from './styles';
 import { Dimmer, Loader } from 'semantic-ui-react';
+import { SearchBar } from '@marvelapp/components';
 
 const Dashboard = ({ getDashboard, characters, isLoading }) => {
+  const [partialResults, setPartialResults] = useState([]);
+
   useEffect(() => {
     getDashboard();
   }, [getDashboard]);
+
+  useEffect(() => {
+    setPartialResults(characters);
+  }, [characters]);
+
+  const updateText = (text) => {
+    if (!text) {
+      setPartialResults(characters);
+      return;
+    }
+    const results = characters.filter((item) => item.name === text);
+    setPartialResults(results);
+  };
 
   return (
     <Container>
       <Wrapper>
         <Row>
           <Title>Search your character</Title>
+        </Row>
+        <Row>
+          <SearchBar results={characters} updateText={updateText} />
         </Row>
         <Row>
           <CardContainer>
@@ -23,14 +42,7 @@ const Dashboard = ({ getDashboard, characters, isLoading }) => {
                 </Dimmer>
               </CustomSegment>
             ) : (
-              characters.map((item) => (
-                <Card
-                  name={item.name}
-                  description={item.description}
-                  image={`${item.thumbnail.path}.${item.thumbnail.extension}`}
-                  link={item.urls[1].url}
-                />
-              ))
+              <CardList characters={partialResults} />
             )}
           </CardContainer>
         </Row>
