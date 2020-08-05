@@ -1,6 +1,13 @@
 import React from 'react';
-import Dashboard from './screens/Dashboard';
+import { Dashboard } from './screens/Dashboard';
+import { Provider } from 'react-redux';
 
-const App = () => <Dashboard />;
+import store from './store';
+
+const App = () => (
+  <Provider store={store()}>
+    <Dashboard />
+  </Provider>
+);
 
 export default App;

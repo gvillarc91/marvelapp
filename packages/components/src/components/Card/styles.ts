@@ -1,11 +1,21 @@
 import styled from 'styled-components';
 import { Button as ButtonUI } from 'semantic-ui-react';
 
+const size = {
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '425px',
+  signUp: '860px',
+  desktop: '950px'
+};
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+
+  margin: 34px;
 
   width: 346px;
   height: 460px;
@@ -18,6 +28,10 @@ export const Wrapper = styled.div`
   &:hover {
     cursor: pointer;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: ${size.desktop}) {
+    margin: 20px;
   }
 `;
 
@@ -73,11 +87,13 @@ export const ContentDescription = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-
+  flex: 1;
   padding: 0 12px;
 
-  width: 100%;
   height: 72px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   font-family: 'Roboto', sans-serif;
   font-style: normal;

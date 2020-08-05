@@ -25,7 +25,9 @@
   },
   "scripts": {
     "start": "start-storybook -p 9001 -c .storybook",
-    "build": "rm -f tsdx.config.js && tsdx build"
+    "build": "rm -f tsdx.config.js && tsdx build",
+    "build:bili": "bili --format esm index.ts -d dist/",
+    "watch:bili": "yarn link && yarn run build:bili -w"
   },
   "devDependencies": {
     "@storybook/addons": "^5.3.19",

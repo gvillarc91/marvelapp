@@ -1,4 +1,1 @@
-
-import Dashboard from './Dashboard';
-
-export default Dashboard;
+export { DashboardContainer as Dashboard } from './container';
