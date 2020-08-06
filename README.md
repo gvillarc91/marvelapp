@@ -43,6 +43,6 @@ We should see it running on: http://localhost:9000/
 
 ## Notes 
 
-1 - When searching for a character, you should enter the character name and then press on Enter. If there is an EXACTLY match, it will bring that result. 
-2 - Testing with react-testing-library was not included (time reasons). 
-3 - UI interface can have some improvements with more time also. 
+- When searching for a character, you should enter the character name and then press on Enter. If there is an EXACTLY match, it will bring that result. 
+- Testing with react-testing-library was not included (time reasons). 
+- UI interface can have some improvements with more time also. 
